@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(npm install)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(node -e \"const fonts = require\\(''next/font/google''\\); console.log\\(Object.keys\\(fonts\\).filter\\(k => k.toLowerCase\\(\\).includes\\(''fredoka''\\)\\)\\)\")",
+      "Bash(node -e \"const fonts = require\\(''next/font/google''\\); console.log\\(Object.keys\\(fonts\\).filter\\(k => k.toLowerCase\\(\\).includes\\(''fred''\\)\\)\\)\")",
+      "Bash(node -e \"const fonts = require\\(''next/font/google''\\); console.log\\(Object.keys\\(fonts\\).slice\\(0,20\\)\\)\")",
+      "Bash(node -e \"import\\(''next/font/google''\\).then\\(m => console.log\\(Object.keys\\(m\\).slice\\(0,20\\)\\)\\)\")",
+      "Bash(npx next build)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm install react-image-crop)"
+    ]
+  }
+}
