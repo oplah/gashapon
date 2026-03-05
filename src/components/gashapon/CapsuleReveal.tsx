@@ -18,8 +18,11 @@ const COLOR_MAP: Record<string, { bg: string; border: string }> = {
   sky:      { bg: "#87c9f4", border: "#4fa8d9" },
 };
 
+const REVEAL_EMOJIS = ["👑","💕","😆","🤩","✨","😎","👌","🔥","🏆","🎀","🫶🏻","💌","💓"];
+
 export function CapsuleReveal({ capsule, onClose }: CapsuleRevealProps) {
   const colorStyle = COLOR_MAP[capsule.color] ?? COLOR_MAP.blush;
+  const emoji = REVEAL_EMOJIS[Math.floor(Math.random() * REVEAL_EMOJIS.length)];
 
   useEffect(() => {
     sounds.playSFX("open");
@@ -70,13 +73,13 @@ export function CapsuleReveal({ capsule, onClose }: CapsuleRevealProps) {
             />
           ))}
           <motion.div
-            className="font-pixel text-pixel-light text-center"
-            style={{ fontSize: "1.6rem", textShadow: "3px 3px 0 #3d1a35" }}
+            className="text-center"
+            style={{ fontSize: "2.2rem" }}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.15, type: "spring", stiffness: 300 }}
           >
-            ✨
+            {emoji}
           </motion.div>
 
           {/* Corner decorations */}
