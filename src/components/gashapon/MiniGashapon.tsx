@@ -34,7 +34,7 @@ export function MiniGashapon() {
         {/* Header stripe */}
         <div className="bg-pixel-pink2 flex items-center justify-center" style={{ height: 22, borderBottom: "3px solid #3d1a35" }}>
           <span className="font-pixel text-pixel-light" style={{ fontSize: "0.38rem", letterSpacing: "0.12em" }}>
-            ♦ GASHAPON ♦
+            ♦ GACHABOX ♦
           </span>
         </div>
 

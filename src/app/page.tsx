@@ -17,7 +17,7 @@ export default function HomePage() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-5 py-4 max-w-2xl mx-auto w-full">
         <span className="font-pixel text-pixel-dark" style={{ fontSize: "0.65rem", letterSpacing: "0.06em" }}>
-          GASHAPON
+          GACHABOX
         </span>
         <div className="flex items-center gap-3">
           <AudioControls />
@@ -65,7 +65,7 @@ export default function HomePage() {
         >
           <Link href="/create">
             <button className="pixel-btn bg-pixel-pink2 text-pixel-light" style={{ fontSize: "0.6rem", padding: "14px 28px" }}>
-              ♦  CREATE A MACHINE  ♦
+              ♦  Create your own Gachabox  ♦
             </button>
           </Link>
         </motion.div>
@@ -94,7 +94,7 @@ export default function HomePage() {
       </section>
 
       <footer className="text-center py-5 font-pixel opacity-40" style={{ fontSize: "0.4rem", letterSpacing: "0.1em", color: "#3d1a35" }}>
-        MADE WITH CARE  ♥  GASHAPON
+        MADE WITH CARE  ♥  GACHABOX
       </footer>
     </main>
   );

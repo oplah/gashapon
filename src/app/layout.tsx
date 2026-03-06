@@ -10,11 +10,11 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Gashapon — Pixel Capsule Surprises",
+  title: "Gachabox — Pixel Capsule Surprises",
   description:
     "Send a surprise capsule machine full of personal messages, photos, and memories to someone you care about.",
   openGraph: {
-    title: "Gashapon — Pixel Capsule Surprises",
+    title: "Gachabox — Pixel Capsule Surprises",
     description: "Turn the handle. Discover a surprise.",
     type: "website",
   },

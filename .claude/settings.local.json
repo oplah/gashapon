@@ -12,7 +12,10 @@
       "Bash(node -e \"import\\(''next/font/google''\\).then\\(m => console.log\\(Object.keys\\(m\\).slice\\(0,20\\)\\)\\)\")",
       "Bash(npx next build)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(npm install react-image-crop)"
+      "Bash(npm install react-image-crop)",
+      "Bash(git config user.email \"oflaviav@gmail.com\")",
+      "Bash(git config user.name \"Oflavia Veranez\")",
+      "Bash(git commit -m \"Initial commit — Gashapon pixel art capsule machine\")"
     ]
   }
 }

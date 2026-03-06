@@ -104,7 +104,7 @@ export function GashaponMachine({
               style={{ height: 28, borderBottom: "4px solid #3d1a35" }}
             >
               <span className="font-pixel text-pixel-light" style={{ fontSize: "0.45rem", letterSpacing: "0.12em" }}>
-                ♦ GASHAPON ♦
+                ♦ GACHABOX ♦
               </span>
             </div>
 
