@@ -59,7 +59,7 @@ export default function MachinePage({ params }: PageProps) {
     if (!machineId) return;
     setResetting(true);
     await resetCapsules(machineId);
-    setCapsules((prev) => prev.map((c) => ({ ...c, opened: false, opened_at: undefined })));
+    setCapsules((prev) => prev.map((c) => ({ ...c, opened: false, opened_at: null })));
     setResetting(false);
   }, [machineId]);
 
