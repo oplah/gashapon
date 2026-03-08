@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { GashaponMachine } from "@/components/gashapon/GashaponMachine";
 import { AudioControls } from "@/components/ui/AudioControls";
-import { getMachine, getCapsules, getUnopenedCapsule, markCapsuleOpened } from "@/lib/supabase";
+import { getMachine, getCapsules, getUnopenedCapsule, markCapsuleOpened, resetCapsules } from "@/lib/supabase";
 import { sounds } from "@/lib/sounds";
 import type { Machine, Capsule } from "@/lib/types";
 
@@ -14,11 +14,12 @@ interface PageProps {
 }
 
 export default function MachinePage({ params }: PageProps) {
-  const [machineId, setMachineId] = useState<string | null>(null);
-  const [machine,   setMachine]   = useState<Machine | null>(null);
-  const [capsules,  setCapsules]  = useState<Capsule[]>([]);
-  const [loading,   setLoading]   = useState(true);
-  const [notFound,  setNotFound]  = useState(false);
+  const [machineId,   setMachineId]   = useState<string | null>(null);
+  const [machine,     setMachine]     = useState<Machine | null>(null);
+  const [capsules,    setCapsules]    = useState<Capsule[]>([]);
+  const [loading,     setLoading]     = useState(true);
+  const [notFound,    setNotFound]    = useState(false);
+  const [resetting,   setResetting]   = useState(false);
 
   const remainingCount = capsules.filter((c) => !c.opened).length;
 
@@ -52,6 +53,14 @@ export default function MachinePage({ params }: PageProps) {
       prev.map((c) => c.id === capsule.id ? { ...c, opened: true, opened_at: new Date().toISOString() } : c)
     );
     return capsule;
+  }, [machineId]);
+
+  const handleReset = useCallback(async () => {
+    if (!machineId) return;
+    setResetting(true);
+    await resetCapsules(machineId);
+    setCapsules((prev) => prev.map((c) => ({ ...c, opened: false, opened_at: undefined })));
+    setResetting(false);
   }, [machineId]);
 
   // ── Loading ────────────────────────────────────────────────
@@ -166,11 +175,21 @@ export default function MachinePage({ params }: PageProps) {
                 — {machine.creator_name}
               </p>
             )}
-            <Link href="/">
-              <button className="pixel-btn bg-pixel-pink text-pixel-dark mt-2" style={{ fontSize: "0.45rem" }}>
-                CREATE YOUR OWN
+            <div className="flex flex-col gap-3 mt-2">
+              <button
+                onClick={handleReset}
+                disabled={resetting}
+                className="pixel-btn bg-pixel-purple text-pixel-light w-full"
+                style={{ fontSize: "0.45rem" }}
+              >
+                {resetting ? "RESETTING…" : "🔄  PLAY AGAIN"}
               </button>
-            </Link>
+              <Link href="/">
+                <button className="pixel-btn bg-pixel-pink text-pixel-dark w-full" style={{ fontSize: "0.45rem" }}>
+                  CREATE YOUR OWN
+                </button>
+              </Link>
+            </div>
           </motion.div>
         )}
       </div>

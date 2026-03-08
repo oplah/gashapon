@@ -90,6 +90,15 @@ export async function markCapsuleOpened(capsuleId: string): Promise<void> {
   if (error) throw error;
 }
 
+export async function resetCapsules(machineId: string): Promise<void> {
+  const { error } = await getClient()
+    .from("capsules")
+    .update({ opened: false, opened_at: null })
+    .eq("machine_id", machineId);
+
+  if (error) throw error;
+}
+
 export async function deleteCapsule(capsuleId: string): Promise<void> {
   const { error } = await getClient()
     .from("capsules")
